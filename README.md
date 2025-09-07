@@ -57,7 +57,7 @@ Interactive web application for visualizing data structures and algorithms with 
 │ ├── 🧪 App.test.js # Application tests
 │ └── 🎨 index.css # Global styles
 │
-├── 📋 package.json # Project dependencies
+└── 📋 package.json # Project dependencies
 ```
 
 
@@ -89,7 +89,7 @@ npm start
 
 4. **Open your browser**
 
-Navigate to ![http://localhost:3000](http://localhost:3000) to view the application.
+Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
 
 ## Usage
