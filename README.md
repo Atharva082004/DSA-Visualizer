@@ -57,7 +57,8 @@ Interactive web application for visualizing data structures and algorithms with 
 │ ├── 🧪 App.test.js # Application tests
 │ └── 🎨 index.css # Global styles
 │
-├── 📋 package.json # Project dependencies```
+├── 📋 package.json # Project dependencies
+```
 
 
 ## Getting Started
@@ -71,14 +72,20 @@ Interactive web application for visualizing data structures and algorithms with 
 ### Installation
 
 1. **Clone the repository**
-```git clone https://github.com/your-username/dsa-visualizer.git
-cd dsa-visualizer```
+```
+git clone https://github.com/your-username/dsa-visualizer.git
+cd dsa-visualizer
+```
 
 2. **Install dependencies**
-```npm install```
+```
+npm install
+```
 
 3. **Start the development server**
-```npm start```
+```
+npm start
+```
 
 4. **Open your browser**
 
