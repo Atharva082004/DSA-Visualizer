@@ -7,6 +7,7 @@ import ControlPanel from "./components/ControlPanel";
 import AnimationControls from "./components/AnimationControls";
 import AnalysisPanel from "./components/AnalysisPanel";
 import GithubButton from "./components/GithubButtons";
+import SortingVisualizer from "./components/SortingVisualizer";
 import GlitchText from "./styles/GlitchText";
 import "./styles/App.css";
 
@@ -29,6 +30,7 @@ function App() {
     tree: useRef(),
     graph: useRef(),
     dijkstra: useRef(),
+    sorting: useRef(),
   };
 
   const tabs = [
@@ -36,6 +38,7 @@ function App() {
     { id: "tree", label: "Binary Tree", icon: "🌳" },
     { id: "graph", label: "Graph", icon: "🕸️" },
     { id: "dijkstra", label: "Dijkstra", icon: "🎯" },
+    { id: "sorting", label: "Sorting", icon: "🔀" }, // Add sorting tab
   ];
 
   const contextValue = {
@@ -71,6 +74,8 @@ function App() {
         return <GraphVisualizer {...commonProps} />;
       case "dijkstra":
         return <DijkstraVisualizer {...commonProps} />;
+      case "sorting":
+        return <SortingVisualizer {...commonProps} />;
       default:
         return <LinkedListVisualizer {...commonProps} />;
     }
@@ -85,12 +90,21 @@ function App() {
       <div className={`app ${darkMode ? "dark-mode" : ""}`}>
         <header className="app-header">
           <div className="header-content">
+            <div className="logo-container">
+              <img
+                src="/logo192.png" // ✅ Fixed path
+                alt="DSA Visualizer Logo"
+                height={70}
+                className="app-logo"
+              />
+            </div>
+
             <div className="title-section">
               <GlitchText
                 speed={2}
                 enableShadows={true}
                 enableOnHover={true}
-                className="custom-class"
+                className="main-title"
               >
                 Advanced DSA Visualizer
               </GlitchText>
@@ -98,6 +112,7 @@ function App() {
                 Interactive Data Structures & Algorithms Learning Platform
               </p>
             </div>
+
             <nav className="nav-tabs">
               {tabs.map((tab) => (
                 <button
@@ -110,6 +125,7 @@ function App() {
                 </button>
               ))}
             </nav>
+
             <div className="header-actions">
               <GithubButton darkMode={darkMode} />
               <button

@@ -55,19 +55,21 @@ body {
 .app-header {
   background: var(--nav-bg);
   color: var(--nav-text);
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
   box-shadow: var(--shadow);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
-
+.logo-container {
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   flex-wrap: wrap;
   gap: 1rem;
@@ -90,13 +92,14 @@ body {
   justify-content: center;
   gap: 0.5rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 0.1rem;
+  margin-left: 1rem;
 }
 
 .nav-tab {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem;
   border: none;
   background: rgba(255,255,255,0.1);
   color: var(--nav-text);
@@ -211,7 +214,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 350px;
   gap: 2rem;
-  padding: 2rem;
+  padding: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -219,7 +222,7 @@ body {
 .visualizer-section {
   background: var(--bg-primary);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.7rem;
   box-shadow: var(--shadow);
   border: 1px solid var(--border-color);
 }
@@ -228,9 +231,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid var(--bg-tertiary);
+  margin-bottom: 0.5rem; 
 }
 
 .visualizer-header h2 {
@@ -758,3 +759,618 @@ select:focus {
     font-size: 0.8rem;
   }
 }
+/* Sorting Visualizer Styles */
+.sorting-visualizer {
+  width: 100%;
+}
+
+.sorting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+}
+
+.sorting-selector .dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  min-width: 180px;
+  justify-content: space-between;
+}
+
+.dropdown-toggle:hover {
+  background: var(--bg-tertiary);
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-tertiary);
+}
+
+.dropdown-item.active {
+  background: #3498db;
+  color: white;
+}
+
+.sorting-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.step-info {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.step-info h5 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.algorithm-explanation {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+}
+
+.algorithm-explanation h4 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.algorithm-explanation ol {
+  margin: 0.5rem 0 0 1.5rem;
+}
+
+.algorithm-explanation li {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+/* C++ Code Implementation Styles */
+.code-implementation {
+  margin-top: 2rem;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.code-header {
+  background: var(--bg-tertiary);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.code-toggle-btn {
+  background: transparent;
+  border: 2px solid #3498db;
+  color: #3498db;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+.code-toggle-btn:hover {
+  background: #3498db;
+  color: white;
+}
+
+.code-toggle-btn .arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.code-toggle-btn .arrow.up {
+  transform: rotate(180deg);
+}
+
+.code-sections {
+  padding: 1rem;
+}
+
+.code-section {
+  margin-bottom: 2rem;
+}
+
+.code-section h5 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.code-block {
+  background: #2c3e50;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  border: 1px solid #34495e;
+}
+
+.code-block code {
+  color: #ecf0f1;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+/* Syntax Highlighting Colors */
+.code-block code {
+  color: #ecf0f1;
+}
+
+/* Keywords */
+.code-block code::before {
+  /* This is basic - for full syntax highlighting, consider using a library like Prism.js */
+}
+
+/* Dark mode adjustments */
+.dark-mode .code-block {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+.dark-mode .code-block code {
+  color: #f8f8f2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .code-block {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .code-toggle-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Collapsible Operations Section */
+.operations-section {
+  margin-top: 2rem;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.section-header {
+  background: var(--bg-tertiary);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-toggle-btn {
+  background: transparent;
+  border: 2px solid #27ae60;
+  color: #27ae60;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+.section-toggle-btn:hover {
+  background: #27ae60;
+  color: white;
+}
+
+.section-toggle-btn .arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.section-toggle-btn .arrow.up {
+  transform: rotate(180deg);
+}
+
+.operations-content {
+  padding: 1.5rem;
+}
+
+.complexity-explanation {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0.25rem 0 0 0;
+  font-style: italic;
+}
+
+
+/* Comparison Section */
+.comparison-section {
+  margin-top: 2rem;
+}
+
+.comparison-table {
+  margin-top: 1rem;
+}
+
+.comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-primary);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.comparison-table th {
+  background: var(--bg-tertiary);
+  font-weight: 600;
+}
+
+.comparison-table tr:hover {
+  background: var(--bg-tertiary);
+}
+
+.comparison-table small {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .operation-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .comparison-table {
+    overflow-x: auto;
+  }
+  
+  .comparison-table table {
+    min-width: 500px;
+  }
+  
+  .section-toggle-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Enhanced complexity grid for better spacing */
+.complexity-grid .complexity-item {
+  padding: 1.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  border-left: 4px solid #e74c3c;
+}
+
+/* Individual Collapsible Sections */
+.collapsible-section {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.collapsible-toggle-btn {
+  width: 100%;
+  background: var(--bg-tertiary);
+  border: none;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.collapsible-toggle-btn:hover {
+  background: #3498db;
+  color: white;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.collapsible-toggle-btn:hover .section-title {
+  color: white;
+}
+
+.section-arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.section-arrow.open {
+  transform: rotate(180deg);
+}
+
+.collapsible-toggle-btn:hover .section-arrow {
+  color: white;
+}
+
+.collapsible-content {
+  padding: 0;
+}
+
+.collapsible-content .code-block {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+}
+
+/* Smooth expand/collapse animation */
+.collapsible-content {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .collapsible-toggle-btn {
+    padding: 0.75rem 1rem;
+  }
+  
+  .section-title {
+    font-size: 0.9rem;
+  }
+}
+
+/* Operation Grid & Cards - Missing CSS */
+
+/* Operation grid container */
+.operation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* Individual operation card */
+.operation-card {
+  background: var(--bg-tertiary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #3498db;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.operation-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
+  border-left-color: #2980b9;
+}
+
+.operation-card h5 {
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.operation-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.operation-card ul li {
+  padding: 0.5rem 0;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(52, 152, 219, 0.1);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.operation-card ul li:last-child {
+  border-bottom: none;
+}
+
+/* Add custom bullet points */
+.operation-card ul li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-size: 0.8rem;
+}
+
+/* Strong text styling in cards */
+.operation-card ul li strong {
+  color: #3498db;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .operation-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .operation-card {
+    padding: 1.25rem;
+  }
+  
+  .operation-card h5 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .operation-grid {
+    gap: 0.75rem;
+  }
+  
+  .operation-card {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .operation-card ul li {
+    padding: 0.4rem 0 0.4rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Dark mode specific adjustments */
+.dark-mode .operation-card {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+.dark-mode .operation-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .operation-card ul li {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Special styling for different card types */
+.operation-card.traversal-card {
+  border-left-color: #27ae60;
+}
+
+.operation-card.traversal-card h5,
+.operation-card.traversal-card ul li strong,
+.operation-card.traversal-card ul li::before {
+  color: #27ae60;
+}
+
+.operation-card.complexity-card {
+  border-left-color: #e74c3c;
+}
+
+.operation-card.complexity-card h5,
+.operation-card.complexity-card ul li strong,
+.operation-card.complexity-card ul li::before {
+  color: #e74c3c;
+}
+
+.operation-card.utility-card {
+  border-left-color: #f39c12;
+}
+
+.operation-card.utility-card h5,
+.operation-card.utility-card ul li strong,
+.operation-card.utility-card ul li::before {
+  color: #f39c12;
+}
+
+/* Animation for card entrance */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.operation-card {
+  animation: cardFadeIn 0.5s ease-out forwards;
+}
+
+/* Staggered animation delay for multiple cards */
+.operation-card:nth-child(1) { animation-delay: 0s; }
+.operation-card:nth-child(2) { animation-delay: 0.1s; }
+.operation-card:nth-child(3) { animation-delay: 0.2s; }
+.operation-card:nth-child(4) { animation-delay: 0.3s; }
+

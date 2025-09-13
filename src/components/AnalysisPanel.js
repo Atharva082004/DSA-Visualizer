@@ -80,6 +80,28 @@ const AnalysisPanel = ({ activeView, stepMode, currentStep }) => {
           advantages: ["Optimal solution", "Works with positive weights"],
           disadvantages: ["Cannot handle negative weights", "Memory intensive"],
         };
+      // Add this case to the switch statement in AnalysisPanel.js
+      case "sorting":
+        return {
+          name: "Sorting Algorithms",
+          spaceComplexity: "Varies by algorithm (O(1) to O(n))",
+          description: "Various algorithms for arranging elements in order",
+          useCases: [
+            "Data organization",
+            "Search optimization",
+            "Database operations",
+          ],
+          advantages: [
+            "Improved search efficiency",
+            "Better data organization",
+            "Optimized performance",
+          ],
+          disadvantages: [
+            "Time complexity varies",
+            "Some require extra space",
+            "Not always stable",
+          ],
+        };
 
       default:
         return {
@@ -95,12 +117,11 @@ const AnalysisPanel = ({ activeView, stepMode, currentStep }) => {
 
   return (
     <div className="analysis-panel">
-      <h3>📊 {analysis.name} Analysis</h3>
+      <h3>{analysis.name} Analysis</h3>
 
-      {/* 🔥 ONLY SHOW TIME COMPLEXITY FOR DIJKSTRA */}
       {activeView === "dijkstra" && (
         <div className="complexity-section">
-          <h4>⏱️ Time Complexity</h4>
+          <h4>Time Complexity⏱️</h4>
           <div className="complexity-grid">
             {Object.entries(analysis.timeComplexity).map(
               ([operation, complexity]) => (
@@ -115,7 +136,7 @@ const AnalysisPanel = ({ activeView, stepMode, currentStep }) => {
       )}
 
       <div className="complexity-section">
-        <h4>💾 Space Complexity</h4>
+        <h4>Space Complexity</h4>
         <p
           className="space-complexity"
           style={{
@@ -128,7 +149,7 @@ const AnalysisPanel = ({ activeView, stepMode, currentStep }) => {
       </div>
 
       <div className="description-section">
-        <h4>📝 Description</h4>
+        <h4>Description</h4>
         <p
           style={{
             paddingLeft: "10px",
@@ -141,7 +162,7 @@ const AnalysisPanel = ({ activeView, stepMode, currentStep }) => {
 
       {analysis.useCases && (
         <div className="use-cases-section">
-          <h4>🎯 Use Cases</h4>
+          <h4>Use Cases</h4>
           <ul
             style={{
               listStylePosition: "inside",
