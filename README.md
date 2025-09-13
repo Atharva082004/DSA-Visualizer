@@ -34,7 +34,8 @@ Interactive web application for visualizing data structures and algorithms with 
 
 ## Project Structure
 
-```DSA-VISUALIZER/
+```
+DSA-VISUALIZER/
 ├── public/
 │ ├── index.html
 │ ├── manifest.json
@@ -75,7 +76,7 @@ Interactive web application for visualizing data structures and algorithms with 
 │ ├── App.js # Main application component
 │ └── index.css # Global styles
 │
-├── package.json # Project dependencies
+└── package.json # Project dependencies
 ```
 
 
